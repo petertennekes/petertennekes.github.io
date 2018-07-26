@@ -1,70 +1,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <title>Peter Tennekes</title>
+    <title>Peter Tennekes</title>
 </head>
 <body>
 <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="images/peter.png" width="30" height="30" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <div class="jumbotron"> <h1>Peter Tennekes</h1></div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link nav-content-link" href="#" data-target="purpose">About<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-content-link" href="#" data-target="share">Share<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-content-link" href="index.html">Pride<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+    </nav>
+    <div class="jumbotron"> <h1>Peter Tennekes</h1></div>
+    <div class="content-area" id="purpose"></div>
+    <div class="content-area" id="share" hidden></div>
 
-  <div class="row">
-    <div class="col-6">
-      <img width="100%" src="images/lake_mountain_grey.jpg">
-    </div>
-    <div class="col-6">
-      <h2>I believe...</h2>
-      <ul>
-        <li>we are just at the beginning of the digital revolution.</li>
-        <li>the digital revolution will fundamentally redefine what it means to work.</li>
-        <li>technology enables and requires us to change the way how we build organisations.</li>
-        <li>the concept of teal organisations is the best answer so for as to how such organisations look like</li>
-        <li>these organisations are more wholesome.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row">
-
-    <div class="col-6">
-      <h2>In order to...</h2>
-      <ul>
-        <li>encourage more organisations to adopt a teal perspective.</li>
-        <li>enable organisations to build self-organising, adaptive structures and processes.</li>
-        <li>help organisations to use that capability to renew their business.</li>
-        <li>make the world a slightly better place.</li>
-      </ul>
-    </div>
-        <div class="col-6">
-      <img width="100%" src="images/lion_grey.jpg">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <img width="100%" src="images/peter_grey.jpg">
-    </div>
-    <div class="col-6">
-      <h2>I want to...</h2>
-      <ul>
-        <li>coach leaders and teams to transform their organisation to include self-organising teams, adaptive structures, evolutionary purpose etc.</li>
-        <li>be an advocate for teal organisations.</li>
-        <li>create tools and methods to facilitate self-organisation and adaptive way of working.</li>
-        <li>learn about key concepts like teal organisations, complex adaptive leadership, anti-fragile etc.</li>
-      </ul>
-    </div>
-  </div>
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#purpose").load("purpose.html");
+        $("#share").load("share.html");
+
+    });
+    $(".nav-content-link").click( function(e){
+        $(".content-area").attr("hidden","true");
+        var target = $(this).data("target");
+        $("#"+target).removeAttr("hidden");
+    });
+</script>
 </body>
 </html>
