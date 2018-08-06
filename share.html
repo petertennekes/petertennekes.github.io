@@ -34,5 +34,48 @@
     </div>
 </div>
 <div class="row">
-
+<div id="linksDiv"></div>
 </div>
+
+<script type="application/javascript">
+    $(function () {
+        var myLinks;
+        console.log("XXX");
+        $.getJSON('links.json', function(data) {
+            console.log("YYY");
+            myLinks = data.links;
+            console.log(myLinks);
+            var aLink;
+            $.each(data.links, function (index, value) {
+                console.log(value);
+
+                createLinkDiv(value["url"]);
+            });
+
+        })
+
+            .fail(function(e) { console.log(e)
+            ; });
+    });
+    function createLinkDiv(url) {
+        console.log(url);
+        var newDiv = $("<div>");
+        newDiv.addClass("card");
+        newDiv.html(url);
+        fetchLinkData(url, function (data) {
+
+            console.log("111");
+            console.log(data);
+
+        });
+        $("#linksDiv").append(newDiv);
+    }
+
+    function fetchLinkData(url, callBack) {
+        var baseUrl = "http://petertennekes.pythonanywhere.com";
+        console.log(baseUrl);
+        $.get(baseUrl, function (data) {
+            callBack(data);
+        })
+    };
+</script>
