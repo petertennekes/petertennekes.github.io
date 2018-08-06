@@ -1,6 +1,7 @@
 import urllib3
 import os
-og_key = os.environ("OPENGRAPH_APIKEY")
+og_key = os.environ["OPENGRAPH_APIKEY"]
+
 http = urllib3.PoolManager()
 
 
