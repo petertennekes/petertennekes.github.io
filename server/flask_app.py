@@ -3,7 +3,7 @@
 
 from flask import Flask
 from flask_cors import cross_origin
-from .open_graph import get_open_graph
+from open_graph import get_open_graph
 app = Flask(__name__)
 
 @app.route('/')
