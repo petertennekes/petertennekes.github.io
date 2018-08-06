@@ -17,31 +17,48 @@
         <div class="col-md-12" id="gr_grid_widget_1532607962">
             <!-- Show static html as a placeholder in case js is not enabled - javascript include will override this if things work -->
             <h2>
-                <a style="text-decoration: none;" rel="nofollow" href="https://www.goodreads.com/review/list/4641452-peter-tennekes?shelf=business&utm_medium=api&utm_source=grid_widget">Books</a>
+                <a style="text-decoration: none;" rel="nofollow"
+                   href="https://www.goodreads.com/review/list/4641452-peter-tennekes?shelf=business&utm_medium=api&utm_source=grid_widget">Books</a>
             </h2>
             <div class="gr_grid_container">
-                <noscript><br/>Share <a rel="nofollow" href="/">book reviews</a> and ratings with Peter, and even join a <a rel="nofollow" href="/group">book club</a> on Goodreads.</noscript>
+                <noscript><br/>Share <a rel="nofollow" href="/">book reviews</a> and ratings with Peter, and even join a
+                    <a rel="nofollow" href="/group">book club</a> on Goodreads.
+                </noscript>
             </div>
 
         </div>
-        <script src="https://www.goodreads.com/review/grid_widget/4641452.Books?cover_size=medium&hide_link=&hide_title=&num_books=20&order=a&shelf=business&sort=date_added&widget_id=1532607962" type="text/javascript" charset="utf-8"></script>
+        <script src="https://www.goodreads.com/review/grid_widget/4641452.Books?cover_size=medium&hide_link=&hide_title=&num_books=20&order=a&shelf=business&sort=date_added&widget_id=1532607962"
+                type="text/javascript" charset="utf-8"></script>
     </div>
 
 </div>
 <div class="row">
     <div class="col-md-12">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLwmSkLeBat2tPjKuVSgNav2ozzleq12SU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/videoseries?list=PLwmSkLeBat2tPjKuVSgNav2ozzleq12SU" frameborder="0"
+                allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
 </div>
 <div class="row">
-<div id="linksDiv"></div>
+    <div id="linksDiv"></div>
 </div>
+<div id="card_template" hidden>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top site_image" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title site_title">Card title</h5>
+            <p class="card-text site_description">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="btn btn-primary site_link">Open</a>
+        </div>
+    </div>
 
+</div>
 <script type="application/javascript">
     $(function () {
         var myLinks;
         console.log("XXX");
-        $.getJSON('links.json', function(data) {
+        $.getJSON('links.json', function (data) {
             console.log("YYY");
             myLinks = data.links;
             console.log(myLinks);
@@ -49,26 +66,40 @@
             $.each(data.links, function (index, value) {
                 console.log(value);
 
-                createLinkDiv(value["url"]);
+                createLinkDiv(value["url"], index);
             });
 
         })
-
-            .fail(function(e) { console.log(e)
-            ; });
     });
-    function createLinkDiv(url) {
+
+    function createLinkDiv(url, count) {
         console.log(url);
-        var newDiv = $("<div>");
-        newDiv.addClass("card");
-        newDiv.html(url);
+
+        var newDiv =  $("#card_template").clone();
+        var newId = 'card_'+count;
+        newDiv.attr('id', newId);
+        $("#linksDiv").append(newDiv);
+
         fetchLinkData(url, function (data) {
 
-            console.log("111");
             console.log(data);
+            var hybridGraph = JSON.parse(data)["hybridGraph"];
+            if (hybridGraph !== undefined) {
 
+                console.log(hybridGraph);
+                console.log("#" + newId);
+
+                var div = $("#" + newId);
+                console.log("#" + newId);
+
+                $("#" + newId).find(".site_description").html(hybridGraph["description"]);
+                $("#" + newId).find(".site_title").html(hybridGraph["title"]);
+                $("#" + newId).find(".site_image").attr('src', hybridGraph["image"]);
+                $("#" + newId).find(".site_link").attr('href', hybridGraph["url"]);
+                $("#" + newId).removeAttr("hidden");
+
+            }
         });
-        $("#linksDiv").append(newDiv);
     }
 
     function fetchLinkData(url, callBack) {
@@ -77,5 +108,8 @@
         $.get(baseUrl, function (data) {
             callBack(data);
         })
+            .fail(function (e) {
+                console.log("fail");
+            });
     };
 </script>
