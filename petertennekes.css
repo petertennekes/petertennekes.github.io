@@ -1,0 +1,31 @@
+.purpose * {
+    font-family: 'Indie Flower', cursive;
+}
+
+.purpose .row {
+    min-height: 300px;
+}
+
+.purpose .left-1 {
+    background-color: #ffead0;
+}
+
+.purpose .right-1 {
+    background-color: #fff3e5;
+}
+
+.purpose .left-2 {
+    background-color: #fab0c1;
+}
+
+.purpose .right-2 {
+    background-color: #f76f8e;
+}
+
+.purpose .left-3 {
+    background-color: #96616b;
+}
+
+.purpose .right-3 {
+    background-color: #c5a8ae;
+}
