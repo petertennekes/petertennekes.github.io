@@ -23,19 +23,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link nav-content-link" href="#" data-target="purpose">About<span class="sr-only">(current)</span></a>
+                    <a class="nav-link nav-content-link" href="#about" data-target="purpose">About<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link nav-content-link" href="#" data-target="share">Share<span class="sr-only">(current)</span></a>
+                    <a class="nav-link nav-content-link" href="#share" data-target="share">Share<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link nav-content-link" href="#tools" data-target="tools">Tools<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link nav-content-link" href="index.html">Pride<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
+        </div>
     </nav>
     <div class="jumbotron"> <h1>Peter Tennekes</h1></div>
     <div class="content-area" id="purpose"></div>
     <div class="content-area" id="share" hidden></div>
+    <div class="content-area" id="tools" hidden></div>
 
 </div>
 <!-- Optional JavaScript -->
@@ -50,6 +55,7 @@
     $(function(){
         $("#purpose").load("purpose.html");
         $("#share").load("share.html");
+        $("#tools").load("tools.html");
 
     });
     $(".nav-content-link").click( function(e){
