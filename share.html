@@ -63,8 +63,8 @@
             myLinks = data.links;
             console.log(myLinks);
             var aLink;
-            $.each(data.links, function (index, value) {
-                console.log(value);
+            $.each(data, function (index, value) {
+                console.log(value["url"]);
 
                 createLinkDiv(value["url"], index);
             });

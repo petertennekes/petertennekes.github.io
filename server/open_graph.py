@@ -11,8 +11,8 @@ else:
     http = urllib3.PoolManager()
 
 
-def get_open_graph():
-    url = "http://opengraph.io/api/1.1/site/" + quote("http://www.futurice.com") + "?app_id="+og_key
+def get_open_graph(target_url):
+    url = "http://opengraph.io/api/1.1/site/" + quote(target_url) + "?app_id="+og_key
     print(url)
     r = http.request('GET', url)
     return r.data

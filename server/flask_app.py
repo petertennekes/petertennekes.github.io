@@ -6,8 +6,8 @@ from flask_cors import cross_origin
 from open_graph import get_open_graph
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/<url>')
 @cross_origin()
-def hello_world():
-    return get_open_graph()
+def hello_world(url):
+    return get_open_graph(url)
 
