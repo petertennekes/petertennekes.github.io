@@ -4,10 +4,16 @@
 from flask import Flask
 from flask_cors import cross_origin
 from open_graph import get_open_graph
+from flask import request
+
 app = Flask(__name__)
 
-@app.route('/<url>')
+@app.route('/')
 @cross_origin()
-def hello_world(url):
-    return get_open_graph(url)
+def hello_world():
+    url = request.args.get('url')
+    if url:
+        return get_open_graph(url)
+    else:
+        return "error"
 
