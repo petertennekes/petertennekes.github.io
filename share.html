@@ -40,7 +40,7 @@
     </div>
 </div>
 <div class="row">
-    <div id="linksDiv"></div>
+    <div id="linksDiv" class="card-columns"></div>
 </div>
 <div id="card_template" hidden>
     <div class="card" style="width: 18rem;">
@@ -55,6 +55,12 @@
 
 </div>
 <script type="application/javascript">
+    String.prototype.trimToLength = function(m) {
+        return (this.length > m)
+            ? jQuery.trim(this).substring(0, m).split(" ").slice(0, -1).join(" ") + "..."
+            : this;
+    };
+
     $(function () {
         var myLinks;
         console.log("XXX");
@@ -92,10 +98,17 @@
                 var div = $("#" + newId);
                 console.log("#" + newId);
 
-                $("#" + newId).find(".site_description").html(hybridGraph["description"]);
+                $("#" + newId).find(".site_description").html(hybridGraph["description"].trimToLength(200));
                 $("#" + newId).find(".site_title").html(hybridGraph["title"]);
                 $("#" + newId).find(".site_image").attr('src', hybridGraph["image"]);
                 $("#" + newId).find(".site_link").attr('href', hybridGraph["url"]);
+                $("#" + newId).removeAttr("hidden");
+
+            } else {
+                $("#" + newId).find(".site_description").html("");
+                $("#" + newId).find(".site_title").html(url);
+                $("#" + newId).find(".site_image").attr('hidden');
+                $("#" + newId).find(".site_link").attr('href', url);
                 $("#" + newId).removeAttr("hidden");
 
             }
@@ -111,6 +124,7 @@
         })
             .fail(function (e) {
                 console.log("fail: "+e);
+                callBack();
             });
     };
 </script>
