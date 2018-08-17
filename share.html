@@ -104,7 +104,7 @@
 
     function fetchLinkData(linkUrl, callBack) {
         var baseUrl = "https://petertennekes.pythonanywhere.com";
-        var url = baseUrl + linkUrl;
+        var url = baseUrl + '/' +  encodeURI(linkUrl);
         console.log("Fetching: "+url);
         $.get(url, function (data) {
             callBack(data);
