@@ -102,10 +102,11 @@
         });
     }
 
-    function fetchLinkData(url, callBack) {
+    function fetchLinkData(linkUrl, callBack) {
         var baseUrl = "https://petertennekes.pythonanywhere.com";
-        console.log(baseUrl);
-        $.get(baseUrl+url, function (data) {
+        var url = baseUrl + linkUrl;
+        console.log("Fetching: "+url);
+        $.get(url, function (data) {
             callBack(data);
         })
             .fail(function (e) {
