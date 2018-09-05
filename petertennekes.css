@@ -1,3 +1,8 @@
+.jumbotron {
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+}
+
 .purpose * {
     font-family: 'Indie Flower', cursive;
 }
@@ -5,7 +10,9 @@
 .purpose .row {
     min-height: 300px;
 }
-
+.purpose .padding {
+    min-height: 20px !important;
+}
 .purpose .left-1 {
     background-color: #ffead0;
 }
