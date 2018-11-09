@@ -36,3 +36,24 @@
 .purpose .right-3 {
     background-color: #c5a8ae;
 }
+
+/* https://stackoverflow.com/questions/32322283/how-to-add-quote-icon-in-bootstrap-glyphicons*/
+blockquote {
+  background: #f9f9f9;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+  color: #ccc;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+
+.material-icons.md-48 { font-size: 48px; }

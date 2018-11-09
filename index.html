@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Roboto" rel="stylesheet">
@@ -27,25 +27,29 @@
                     <a class="nav-link nav-content-link" href="#" data-target="purpose">About<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
+                    <a class="nav-link nav-content-link" href="#" data-target="agile">Agile<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link nav-content-link" href="#" data-target="coaching">Coaching<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link nav-content-link" href="#" data-target="technology">Technology<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item ">
                     <a class="nav-link nav-content-link" href="#" data-target="share">Share<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link nav-content-link" href="#" data-target="tools">Tools<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link nav-content-link" href="#" data-target="portfolio">Portfolio<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="jumbotron">
+    <div id="name_jumbotron" class="jumbotron">
         <h1>Peter Tennekes</h1>
 
     </div>
     <div class="content-area purpose" id="purpose"></div>
+    <div class="content-area" id="agile" hidden></div>
+    <div class="content-area" id="coaching" hidden></div>
+    <div class="content-area" id="technology" hidden></div>
     <div class="content-area" id="share" hidden></div>
-    <div class="content-area" id="tools" hidden></div>
-        <div class="content-area" id="portfolio" hidden></div>
 
     <div class="footer">
         <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
@@ -64,9 +68,10 @@
 <script type="text/javascript">
     $(function(){
         $("#purpose").load("purpose.html");
+        $("#agile").load("agile.html");
+        $("#coaching").load("coaching.html");
+        $("#technology").load("technology.html");
         $("#share").load("share.html");
-        $("#tools").load("tools.html");
-        $("#portfolio").load("portfolio.html");
 
     });
     $(".nav-content-link").click( function(e){
