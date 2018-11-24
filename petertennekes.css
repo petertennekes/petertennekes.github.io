@@ -57,3 +57,20 @@ blockquote:before {
 
 
 .material-icons.md-48 { font-size: 48px; }
+
+.keyword {
+    margin: 3px;
+    border-radius: 24px;
+}
+
+.topic_quote {
+    text-align:center;
+}
+
+.blockquote-footer {
+    text-align:right;
+
+}
+
+.row-centered{
+}
