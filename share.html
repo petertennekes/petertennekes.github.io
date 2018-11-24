@@ -88,14 +88,10 @@
 
     $(function () {
         var myLinks;
-        console.log("XXX");
         $.getJSON('links.json', function (data) {
-            console.log("YYY");
             myLinks = data.links;
-            console.log(myLinks);
             var aLink;
             $.each(data, function (index, value) {
-                console.log(value["url"]);
 
                 createLinkDiv(value["url"], index);
             });
@@ -104,7 +100,6 @@
     });
 
     function createLinkDiv(url, count) {
-        console.log(url);
 
         var newDiv =  $("#card_template").clone();
         var newId = 'card_'+count;
@@ -113,15 +108,10 @@
 
         fetchLinkData(url, function (data) {
 
-            console.log(data);
             var hybridGraph = JSON.parse(data)["hybridGraph"];
             if (hybridGraph !== undefined) {
 
-                console.log(hybridGraph);
-                console.log("#" + newId);
 
-                var div = $("#" + newId);
-                console.log("#" + newId);
 
                 $("#" + newId).find(".site_description").html(hybridGraph["description"].trimToLength(200));
                 $("#" + newId).find(".site_title").html(hybridGraph["title"]);
@@ -143,12 +133,10 @@
     function fetchLinkData(linkUrl, callBack) {
         var baseUrl = "https://petertennekes.pythonanywhere.com";
         var url = baseUrl + '/?url=' +  encodeURIComponent(linkUrl);
-        console.log("Fetching: "+url);
         $.get(url, function (data) {
             callBack(data);
         })
             .fail(function (e) {
-                console.log("fail: "+e);
                 callBack();
             });
     };

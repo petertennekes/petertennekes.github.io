@@ -27,13 +27,13 @@
                     <a class="nav-link nav-content-link" href="#" data-target="purpose">About<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link nav-content-link" href="#" data-target="agile">Agile<span class="sr-only">(current)</span></a>
+                    <a class="nav-link nav-content-link" href="#agile" data-target="agile">Agile<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link nav-content-link" href="#" data-target="coaching">Coaching<span class="sr-only">(current)</span></a>
+                    <a class="nav-link nav-content-link" href="#coaching" data-target="coaching">Coaching<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link nav-content-link" href="#" data-target="technology">Technology<span class="sr-only">(current)</span></a>
+                    <a class="nav-link nav-content-link" href="#technology" data-target="technology">Technology<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link nav-content-link" href="#" data-target="share">Share<span class="sr-only">(current)</span></a>
@@ -66,6 +66,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript">
+    $.fn.exists = function () {
+        return this.length !== 0;
+    };
     $(function(){
         $("#purpose").load("purpose.html");
         $("#agile").load("agile.html");
@@ -74,11 +77,24 @@
         $("#share").load("share.html");
 
     });
-    $(".nav-content-link").click( function(e){
-        $(".content-area").attr("hidden","true");
-        var target = $(this).data("target");
-        $("#"+target).removeAttr("hidden");
+    $(function () {
+       var hash = window.location.hash;
+        var target = hash.substring(1);
+        console.log(target);
+        showArea(target);
     });
+    $(".nav-content-link").click( function(e){
+        var target = $(this).data("target");
+        showArea(target);
+    });
+    function showArea(areaName){
+        var sel = "#"+areaName;
+        $(sel).each(function () {
+            $(".content-area").attr("hidden","true");
+            $(this).removeAttr("hidden");
+
+        })
+    }
 </script>
 </body>
 </html>

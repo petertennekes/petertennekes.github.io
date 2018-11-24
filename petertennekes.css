@@ -39,6 +39,8 @@
 
 /* https://stackoverflow.com/questions/32322283/how-to-add-quote-icon-in-bootstrap-glyphicons*/
 blockquote {
+        border-radius: 4px;
+
   background: #f9f9f9;
   margin: 1.5em 10px;
   padding: 0.5em 10px;
@@ -72,5 +74,15 @@ blockquote:before {
 
 }
 
-.row-centered{
+.keyword-footer {
+    display: block;
+    font-size: 80%;
+    color: #6c757d;
+        text-align:left;
+
+}
+
+.keyword-row {
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
